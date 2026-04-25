@@ -97,7 +97,7 @@ class LaporanTransaksiNotifier extends ChangeNotifier {
                 e.userinput == users!.namauser &&
                 e.status == "PENDING";
           }).toList();
-          listTransaksiAdd.addAll(filtered);
+          listTransaksiAdd.addAll(listTransaksi);
           print("PENDING : ${listTransaksi.length}");
           print("PENDING RESULT: ${listTransaksiAdd.length}");
         }
@@ -299,7 +299,7 @@ class LaporanTransaksiNotifier extends ChangeNotifier {
       "filter": {
         "general": {
           "batch": null,
-          "userinput": "${pilihSemuaMenu ? "" : users!.namauser}",
+          "userinput": "",
           "userotor": "",
           "otorrev": "",
           "chguser": "",
@@ -310,13 +310,15 @@ class LaporanTransaksiNotifier extends ChangeNotifier {
           "rrn": null,
           "no_dokumen": null,
           "no_reff": null,
+          "flag_trn": "0",
+          "acquirer": ""
           // "flag_trn": "0"
         },
         "range_tanggal": {
           "from":
-              "${cariTglTrans ? DateFormat('y-MM-dd').format(tglTransAwal!) : ""}",
+              "",
           "to":
-              "${cariTglTrans ? DateFormat('y-MM-dd').format(tglTransAkhir!) : ""}",
+              "",
         },
         "range_tanggal_valuta": {
           "from":
@@ -329,7 +331,7 @@ class LaporanTransaksiNotifier extends ChangeNotifier {
       },
       "pagination": {"page": 1},
       "sort": {
-        "by": "${cariTglTrans ? "tgl_transaksi" : "tgl_valuta"}",
+        "by": "${cariTglTrans ? "tgl_transaksi, no_trans" : "tgl_valuta, no_trans"}",
         "order": "desc"
       }
     };

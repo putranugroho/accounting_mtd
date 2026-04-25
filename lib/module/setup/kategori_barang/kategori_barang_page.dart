@@ -57,7 +57,7 @@ class KategoriBarangPage extends StatelessWidget {
                                 columnWidthMode: ColumnWidthMode.fill,
                                 rowHeight: 44,
                                 headerRowHeight: 42,
-                                frozenColumnsCount: 1,
+                                frozenColumnsCount: 2,
                                 allowSorting: true,
                                 // onCellTap: (details) {},
                               ),

@@ -86,7 +86,7 @@ class SatuTransaksiNotifier extends ChangeNotifier {
           });
     }
   }
-  
+
   var isLoadingData = true;
   List<TransaksiPendModel> listTransaksi = [];
   List<TransaksiPendModel> listTransaksiAdd = [];
@@ -614,6 +614,8 @@ class SatuTransaksiNotifier extends ChangeNotifier {
           "status": "PENDING",
           "modul": "Satu Transaksi",
         };
+
+        print("REQUEST $data");
         Setuprepository.setup(token, NetworkURL.transaksi(), jsonEncode(data))
             .then((value) {
           Navigator.pop(context);

@@ -190,8 +190,8 @@ class KategoriBarangDataSource extends DataGridSource {
       return DataGridRow(
         cells: [
           DataGridCell(columnName: 'id', value: fmt(m['id'])),
-          DataGridCell(columnName: 'nama', value: fmt(m['nama_kategori'])),
           DataGridCell(columnName: 'kode', value: fmt(m['kode_kategori'])),
+          DataGridCell(columnName: 'nama', value: fmt(m['nama_kategori'])),
           DataGridCell(columnName: 'deskripsi', value: fmt(m['deskripsi'])),
           DataGridCell(columnName: 'status', value: fmt(m['status'])),
           DataGridCell(columnName: 'id', value: fmt(m['id'])),

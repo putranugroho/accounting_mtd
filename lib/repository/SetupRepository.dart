@@ -151,6 +151,7 @@ class Setuprepository {
     dio.options.headers['api-key'] = "123";
     dio.options.headers['Content-Type'] = "application/json";
     // dio.options.headers['x-password'] = xpassword;
+    print("REQUEST : $json");
     if (kDebugMode) {
       print("ENDPOINT URL : $url");
     }

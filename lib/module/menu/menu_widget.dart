@@ -31,7 +31,9 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
       },
       title: Container(
         decoration: BoxDecoration(
-          color: _isExpanded ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
+          color: _isExpanded
+              ? const Color.fromARGB(255, 0, 125, 228)
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -284,7 +286,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 74 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 74 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -301,7 +304,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
                   "Golongan Barang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 74 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 74 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -314,7 +318,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 75 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 75 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -331,7 +336,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
                   "Kelompok Barang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 75 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 75 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -344,7 +350,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 76 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 76 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -361,7 +368,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
                   "Jenis Barang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 76 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 76 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -374,7 +382,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 77 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 77 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -391,7 +400,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
                   "Kategori Barang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 77 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 77 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -404,7 +414,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 85 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 85 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -421,7 +432,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
                   "Satuan Barang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 85 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 85 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -434,7 +446,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 78 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 78 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -451,7 +464,8 @@ class _MenuSetupWidgetState extends State<MenuSetupWidget> {
                   "Status Pengiriman",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 78 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 78 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1053,7 +1067,9 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
       },
       title: Container(
         decoration: BoxDecoration(
-          color: _isExpanded ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
+          color: _isExpanded
+              ? const Color.fromARGB(255, 0, 125, 228)
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -1075,7 +1091,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 79 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 79 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1092,7 +1109,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
                   "Master Users",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 79 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 79 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1105,7 +1123,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 80 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 80 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1122,7 +1141,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
                   "Master Barang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 80 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 80 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1135,7 +1155,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 84 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 84 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1152,7 +1173,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
                   "Master Barcode",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 84 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 84 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1165,7 +1187,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 81 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 81 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1182,7 +1205,8 @@ class _MenuMasterWidgetState extends State<MenuMasterWidget> {
                   "Master Movers",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 81 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 81 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1470,7 +1494,9 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
       },
       title: Container(
         decoration: BoxDecoration(
-          color: _isExpanded ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
+          color: _isExpanded
+              ? const Color.fromARGB(255, 0, 125, 228)
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -1492,7 +1518,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 11 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 11 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1509,7 +1536,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
                   "Pengadaan",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 11 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 11 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1522,7 +1550,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 12 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 12 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1539,7 +1568,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
                   "Penempatan",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 12 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 12 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1552,7 +1582,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 13 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 13 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1569,7 +1600,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
                   "Revaluasi",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 13 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 13 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1582,7 +1614,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 14 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 14 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1599,7 +1632,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
                   "Jual/Hapus",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 14 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 14 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1612,7 +1646,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 15 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 15 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1629,7 +1664,8 @@ class _MenuInventarisWidgetState extends State<MenuInventarisWidget> {
                   "Otorisasi",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 15 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 15 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1676,7 +1712,8 @@ class MenuHutangPiutangWidget extends StatefulWidget {
   const MenuHutangPiutangWidget({super.key, required this.value});
 
   @override
-  State<MenuHutangPiutangWidget> createState() => _MenuHutangPiutangWidgetState();
+  State<MenuHutangPiutangWidget> createState() =>
+      _MenuHutangPiutangWidgetState();
 }
 
 class _MenuHutangPiutangWidgetState extends State<MenuHutangPiutangWidget> {
@@ -1698,7 +1735,9 @@ class _MenuHutangPiutangWidgetState extends State<MenuHutangPiutangWidget> {
       },
       title: Container(
         decoration: BoxDecoration(
-          color: _isExpanded ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
+          color: _isExpanded
+              ? const Color.fromARGB(255, 0, 125, 228)
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -1750,7 +1789,8 @@ class _MenuHutangPiutangWidgetState extends State<MenuHutangPiutangWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 61 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 61 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1767,7 +1807,8 @@ class _MenuHutangPiutangWidgetState extends State<MenuHutangPiutangWidget> {
                   "Hutang / Piutang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 61 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 61 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1780,7 +1821,8 @@ class _MenuHutangPiutangWidgetState extends State<MenuHutangPiutangWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 71 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 71 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1797,7 +1839,8 @@ class _MenuHutangPiutangWidgetState extends State<MenuHutangPiutangWidget> {
                   "Laporan",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 71 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 71 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1837,7 +1880,9 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
       },
       title: Container(
         decoration: BoxDecoration(
-          color: _isExpanded ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
+          color: _isExpanded
+              ? const Color.fromARGB(255, 0, 125, 228)
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -1859,7 +1904,8 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 72 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 72 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1876,7 +1922,8 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
                   "Penerimaan",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 72 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 72 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1889,7 +1936,8 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 73 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 73 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1906,7 +1954,8 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
                   "Pengeluaran",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 73 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 73 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1919,7 +1968,8 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 86 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 86 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1936,7 +1986,8 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
                   "Koreksi Barang",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 86 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 86 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -1949,7 +2000,8 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 83 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 83 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -1966,856 +2018,950 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
                   "Tracking Pengiriman",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 83 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 83 ? Colors.black : Colors.white,
                   ),
                 )
               ],
             ),
           ),
         ),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(17),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 17 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.report,
-        //             height: 30,
-        //             color: widget.value.page == 17 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Satu Transaksi",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 17 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(18),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 18 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.report,
-        //             height: 30,
-        //             color: widget.value.page == 18 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Banyak Transaksi",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 18 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(67),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 67 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.report,
-        //             height: 30,
-        //             color: widget.value.page == 67 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Pembatalan Transaksi",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 67 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(57),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 57 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.report,
-        //             height: 30,
-        //             color: widget.value.page == 57 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Penyelesian Perantara",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 57 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(58),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 58 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.debt,
-        //             height: 30,
-        //             color: widget.value.page == 58 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Bayar Hutang/ Piutang",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 58 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(59),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 59 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.rupiahs,
-        //             height: 30,
-        //             color: widget.value.page == 59 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Bayar/Pendapatan dimuka",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 59 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   ExpansionTile(
-        //       tilePadding: EdgeInsets.zero,
-        //       childrenPadding: EdgeInsets.zero,
-        //       shape: const Border(),
-        //       expandedAlignment: Alignment.centerLeft,
-        //       collapsedIconColor: Colors.white,
-        //       expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
-        //       onExpansionChanged: (expanded) {
-        //         if (expanded) {
-        //           setState(() {
-        //             _isExpandedSub = 1;
-        //           });
-        //         } else {
-        //           setState(() {
-        //             _isExpandedSub = 0;
-        //           });
-        //         }
-        //       },
-        //       title: Container(
-        //         decoration: BoxDecoration(
-        //           color: _isExpandedSub == 1 ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
-        //         ),
-        //         padding: const EdgeInsets.symmetric(horizontal: 20),
-        //         child: Row(
-        //           children: [
-        //             Image.asset(ImageAssets.rupiah, height: 30, color: Colors.white),
-        //             const SizedBox(
-        //               width: 16,
-        //             ),
-        //             const Text(
-        //               "Kas Kecil",
-        //               style: TextStyle(fontSize: 16, color: Colors.white),
-        //             )
-        //           ],
-        //         ),
-        //       ),
-        //       children: [
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(19),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 19 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 19 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Pengeluran/Pemasukan",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 19 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(62),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 62 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 62 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Kas Bon",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 62 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(70),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 70 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 70 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Laporan Kas Kecil",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 70 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         // InkWell(
-        //         //   onTap: () => widget.value.gantimenu(63),
-        //         //   child: Container(
-        //         //     width: MediaQuery.of(context).size.width,
-        //         //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //         //     decoration: BoxDecoration(
-        //         //       color: widget.value.page == 63 ? Colors.white : Colors.transparent,
-        //         //       borderRadius: BorderRadius.circular(8),
-        //         //     ),
-        //         //     child: Row(
-        //         //       children: [
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Image.asset(
-        //         //           ImageAssets.report,
-        //         //           height: 30,
-        //         //           color: widget.value.page == 63 ? Colors.black : Colors.white,
-        //         //         ),
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Text(
-        //         //           "Penyelesaian Kas Bon",
-        //         //           style: TextStyle(
-        //         //             fontSize: 16,
-        //         //             color: widget.value.page == 63 ? Colors.black : Colors.white,
-        //         //           ),
-        //         //         )
-        //         //       ],
-        //         //     ),
-        //         //   ),
-        //         // ),
-        //       ]),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(20),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 20 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.bank,
-        //             height: 30,
-        //             color: widget.value.page == 20 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Saldo Bank",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 20 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   ExpansionTile(
-        //       tilePadding: EdgeInsets.zero,
-        //       childrenPadding: EdgeInsets.zero,
-        //       shape: const Border(),
-        //       expandedAlignment: Alignment.centerLeft,
-        //       collapsedIconColor: Colors.white,
-        //       expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
-        //       onExpansionChanged: (expanded) {
-        //         if (expanded) {
-        //           setState(() {
-        //             _isExpandedSub = 2;
-        //           });
-        //         } else {
-        //           setState(() {
-        //             _isExpandedSub = 0;
-        //           });
-        //         }
-        //       },
-        //       title: Container(
-        //         decoration: BoxDecoration(
-        //           color: _isExpandedSub == 2 ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
-        //         ),
-        //         padding: const EdgeInsets.symmetric(horizontal: 20),
-        //         child: Row(
-        //           children: [
-        //             Image.asset(
-        //               ImageAssets.bill,
-        //               height: 30,
-        //               color: Colors.white,
-        //             ),
-        //             const SizedBox(
-        //               width: 16,
-        //             ),
-        //             const Text(
-        //               "Rekonsiliasi Harian",
-        //               style: TextStyle(
-        //                 fontSize: 16,
-        //                 color: Colors.white,
-        //               ),
-        //             )
-        //           ],
-        //         ),
-        //       ),
-        //       children: [
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(54),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 54 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 54 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Transaksi",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 54 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(50),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 50 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 50 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Bank",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 50 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(55),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 55 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 55 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Perantara Aktiva/Pasiva",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 55 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(51),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 51 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 51 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Hutang/Piutang",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 51 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         // InkWell(
-        //         //   onTap: () => value.gantimenu(52),
-        //         //   child: Container(
-        //         //     width: MediaQuery.of(context).size.width,
-        //         //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //         //     decoration: BoxDecoration(
-        //         //   color: value.page ==  ? Colors.white : Colors.transparent,
-        //         //   borderRadius: BorderRadius.circular(8),
-        //         // ),
-        //         //     child: Row(
-        //         //       children: [
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Image.asset(
-        //         //           ImageAssets.report,
-        //         //           height: 30,
-        //         //           color: value.page == 52 ? Colors.black : Colors.white,
-        //         //         ),
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Text(
-        //         //           "Piutang",
-        //         //           style: TextStyle(
-        //         //             fontSize: 16,
-        //         //             color:
-        //         //                 value.page == 52 ? Colors.black : Colors.white,
-        //         //           ),
-        //         //         )
-        //         //       ],
-        //         //     ),
-        //         //   ),
-        //         // ),
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(53),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 53 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 53 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Aset",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 53 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //       ]),
-        //   InkWell(
-        //     onTap: () => widget.value.gantimenu(24),
-        //     child: Container(
-        //       width: MediaQuery.of(context).size.width,
-        //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //       decoration: BoxDecoration(
-        //         color: widget.value.page == 24 ? Colors.white : Colors.transparent,
-        //         borderRadius: BorderRadius.circular(8),
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           Image.asset(
-        //             ImageAssets.click,
-        //             height: 30,
-        //             color: widget.value.page == 24 ? Colors.black : Colors.white,
-        //           ),
-        //           const SizedBox(
-        //             width: 16,
-        //           ),
-        //           Text(
-        //             "Otorisasi",
-        //             style: TextStyle(
-        //               fontSize: 16,
-        //               color: widget.value.page == 24 ? Colors.black : Colors.white,
-        //             ),
-        //           )
-        //         ],
-        //       ),
-        //     ),
-        //   ),
-        //   ExpansionTile(
-        //       tilePadding: EdgeInsets.zero,
-        //       childrenPadding: EdgeInsets.zero,
-        //       shape: const Border(),
-        //       expandedAlignment: Alignment.centerLeft,
-        //       collapsedIconColor: Colors.white,
-        //       expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
-        //       onExpansionChanged: (expanded) {
-        //         if (expanded) {
-        //           setState(() {
-        //             _isExpandedSub = 3;
-        //           });
-        //         } else {
-        //           setState(() {
-        //             _isExpandedSub = 0;
-        //           });
-        //         }
-        //       },
-        //       title: Container(
-        //         decoration: BoxDecoration(
-        //           color: _isExpandedSub == 3 ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
-        //         ),
-        //         padding: const EdgeInsets.symmetric(horizontal: 20),
-        //         child: Row(
-        //           children: [
-        //             Image.asset(
-        //               ImageAssets.report,
-        //               height: 30,
-        //               color: Colors.white,
-        //             ),
-        //             const SizedBox(
-        //               width: 16,
-        //             ),
-        //             const Text(
-        //               "Laporan",
-        //               style: TextStyle(
-        //                 fontSize: 16,
-        //                 color: Colors.white,
-        //               ),
-        //             )
-        //           ],
-        //         ),
-        //       ),
-        //       children: [
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(43),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 43 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 43 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Jurnal",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 43 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         InkWell(
-        //           onTap: () => widget.value.gantimenu(25),
-        //           child: Container(
-        //             width: MediaQuery.of(context).size.width,
-        //             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //             decoration: BoxDecoration(
-        //               color: widget.value.page == 25 ? Colors.white : Colors.transparent,
-        //               borderRadius: BorderRadius.circular(8),
-        //             ),
-        //             child: Row(
-        //               children: [
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Image.asset(
-        //                   ImageAssets.report,
-        //                   height: 30,
-        //                   color: widget.value.page == 25 ? Colors.black : Colors.white,
-        //                 ),
-        //                 const SizedBox(
-        //                   width: 16,
-        //                 ),
-        //                 Text(
-        //                   "Transaksi",
-        //                   style: TextStyle(
-        //                     fontSize: 16,
-        //                     color: widget.value.page == 25 ? Colors.black : Colors.white,
-        //                   ),
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //         // InkWell(
-        //         //   onTap: () => widget.value.gantimenu(41),
-        //         //   child: Container(
-        //         //     width: MediaQuery.of(context).size.width,
-        //         //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //         //     decoration: BoxDecoration(
-        //         //       color: widget.value.page == 41
-        //         //           ? Colors.white
-        //         //           : Colors.transparent,
-        //         //       borderRadius: BorderRadius.circular(8),
-        //         //     ),
-        //         //     child: Row(
-        //         //       children: [
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Image.asset(
-        //         //           ImageAssets.report,
-        //         //           height: 30,
-        //         //           color: widget.value.page == 41
-        //         //               ? Colors.black
-        //         //               : Colors.white,
-        //         //         ),
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Text(
-        //         //           "Banyak Transaksi",
-        //         //           style: TextStyle(
-        //         //             fontSize: 16,
-        //         //             color: widget.value.page == 41
-        //         //                 ? Colors.black
-        //         //                 : Colors.white,
-        //         //           ),
-        //         //         )
-        //         //       ],
-        //         //     ),
-        //         //   ),
-        //         // ),
-        //         // InkWell(
-        //         //   onTap: () => widget.value.gantimenu(42),
-        //         //   child: Container(
-        //         //     width: MediaQuery.of(context).size.width,
-        //         //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        //         //     decoration: BoxDecoration(
-        //         //       color: widget.value.page == 42
-        //         //           ? Colors.white
-        //         //           : Colors.transparent,
-        //         //       borderRadius: BorderRadius.circular(8),
-        //         //     ),
-        //         //     child: Row(
-        //         //       children: [
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Image.asset(
-        //         //           ImageAssets.report,
-        //         //           height: 30,
-        //         //           color: widget.value.page == 42
-        //         //               ? Colors.black
-        //         //               : Colors.white,
-        //         //         ),
-        //         //         SizedBox(
-        //         //           width: 16,
-        //         //         ),
-        //         //         Text(
-        //         //           "Back date",
-        //         //           style: TextStyle(
-        //         //             fontSize: 16,
-        //         //             color: widget.value.page == 42
-        //         //                 ? Colors.black
-        //         //                 : Colors.white,
-        //         //           ),
-        //         //         )
-        //         //       ],
-        //         //     ),
-        //         //   ),
-        //         // ),
-        //       ]),
+        InkWell(
+          onTap: () => widget.value.gantimenu(17),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 17 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.report,
+                  height: 30,
+                  color: widget.value.page == 17 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Satu Transaksi",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 17 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () => widget.value.gantimenu(18),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 18 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.report,
+                  height: 30,
+                  color: widget.value.page == 18 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Banyak Transaksi",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 18 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () => widget.value.gantimenu(67),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 67 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.report,
+                  height: 30,
+                  color: widget.value.page == 67 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Pembatalan Transaksi",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 67 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () => widget.value.gantimenu(57),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 57 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.report,
+                  height: 30,
+                  color: widget.value.page == 57 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Penyelesian Perantara",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 57 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () => widget.value.gantimenu(58),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 58 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.debt,
+                  height: 30,
+                  color: widget.value.page == 58 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Bayar Hutang/ Piutang",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 58 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () => widget.value.gantimenu(59),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 59 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.rupiahs,
+                  height: 30,
+                  color: widget.value.page == 59 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Bayar/Pendapatan dimuka",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 59 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        ExpansionTile(
+            tilePadding: EdgeInsets.zero,
+            childrenPadding: EdgeInsets.zero,
+            shape: const Border(),
+            expandedAlignment: Alignment.centerLeft,
+            collapsedIconColor: Colors.white,
+            expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
+            onExpansionChanged: (expanded) {
+              if (expanded) {
+                setState(() {
+                  _isExpandedSub = 1;
+                });
+              } else {
+                setState(() {
+                  _isExpandedSub = 0;
+                });
+              }
+            },
+            title: Container(
+              decoration: BoxDecoration(
+                color: _isExpandedSub == 1
+                    ? const Color.fromARGB(255, 0, 125, 228)
+                    : Colors.transparent,
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Image.asset(ImageAssets.rupiah,
+                      height: 30, color: Colors.white),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  const Text(
+                    "Kas Kecil",
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  )
+                ],
+              ),
+            ),
+            children: [
+              InkWell(
+                onTap: () => widget.value.gantimenu(19),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 19
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 19
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Pengeluran/Pemasukan",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 19
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => widget.value.gantimenu(62),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 62
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 62
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Kas Bon",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 62
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => widget.value.gantimenu(70),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 70
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 70
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Laporan Kas Kecil",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 70
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              // InkWell(
+              //   onTap: () => widget.value.gantimenu(63),
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              //     decoration: BoxDecoration(
+              //       color: widget.value.page == 63 ? Colors.white : Colors.transparent,
+              //       borderRadius: BorderRadius.circular(8),
+              //     ),
+              //     child: Row(
+              //       children: [
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Image.asset(
+              //           ImageAssets.report,
+              //           height: 30,
+              //           color: widget.value.page == 63 ? Colors.black : Colors.white,
+              //         ),
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Text(
+              //           "Penyelesaian Kas Bon",
+              //           style: TextStyle(
+              //             fontSize: 16,
+              //             color: widget.value.page == 63 ? Colors.black : Colors.white,
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //   ),
+              // ),
+            ]),
+        InkWell(
+          onTap: () => widget.value.gantimenu(20),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 20 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.bank,
+                  height: 30,
+                  color: widget.value.page == 20 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Saldo Bank",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 20 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        ExpansionTile(
+            tilePadding: EdgeInsets.zero,
+            childrenPadding: EdgeInsets.zero,
+            shape: const Border(),
+            expandedAlignment: Alignment.centerLeft,
+            collapsedIconColor: Colors.white,
+            expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
+            onExpansionChanged: (expanded) {
+              if (expanded) {
+                setState(() {
+                  _isExpandedSub = 2;
+                });
+              } else {
+                setState(() {
+                  _isExpandedSub = 0;
+                });
+              }
+            },
+            title: Container(
+              decoration: BoxDecoration(
+                color: _isExpandedSub == 2
+                    ? const Color.fromARGB(255, 0, 125, 228)
+                    : Colors.transparent,
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Image.asset(
+                    ImageAssets.bill,
+                    height: 30,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  const Text(
+                    "Rekonsiliasi Harian",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            children: [
+              InkWell(
+                onTap: () => widget.value.gantimenu(54),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 54
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 54
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Transaksi",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 54
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => widget.value.gantimenu(50),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 50
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 50
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Bank",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 50
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => widget.value.gantimenu(55),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 55
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 55
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Perantara Aktiva/Pasiva",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 55
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => widget.value.gantimenu(51),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 51
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 51
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Hutang/Piutang",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 51
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              // InkWell(
+              //   onTap: () => value.gantimenu(52),
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              //     decoration: BoxDecoration(
+              //   color: value.page ==  ? Colors.white : Colors.transparent,
+              //   borderRadius: BorderRadius.circular(8),
+              // ),
+              //     child: Row(
+              //       children: [
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Image.asset(
+              //           ImageAssets.report,
+              //           height: 30,
+              //           color: value.page == 52 ? Colors.black : Colors.white,
+              //         ),
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Text(
+              //           "Piutang",
+              //           style: TextStyle(
+              //             fontSize: 16,
+              //             color:
+              //                 value.page == 52 ? Colors.black : Colors.white,
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              InkWell(
+                onTap: () => widget.value.gantimenu(53),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 53
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 53
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Aset",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 53
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ]),
+        InkWell(
+          onTap: () => widget.value.gantimenu(24),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color:
+                  widget.value.page == 24 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  ImageAssets.click,
+                  height: 30,
+                  color: widget.value.page == 24 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Otorisasi",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color:
+                        widget.value.page == 24 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        ExpansionTile(
+            tilePadding: EdgeInsets.zero,
+            childrenPadding: EdgeInsets.zero,
+            shape: const Border(),
+            expandedAlignment: Alignment.centerLeft,
+            collapsedIconColor: Colors.white,
+            expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
+            onExpansionChanged: (expanded) {
+              if (expanded) {
+                setState(() {
+                  _isExpandedSub = 3;
+                });
+              } else {
+                setState(() {
+                  _isExpandedSub = 0;
+                });
+              }
+            },
+            title: Container(
+              decoration: BoxDecoration(
+                color: _isExpandedSub == 3
+                    ? const Color.fromARGB(255, 0, 125, 228)
+                    : Colors.transparent,
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Image.asset(
+                    ImageAssets.report,
+                    height: 30,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  const Text(
+                    "Laporan",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            children: [
+              InkWell(
+                onTap: () => widget.value.gantimenu(43),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 43
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 43
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Jurnal",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 43
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () => widget.value.gantimenu(25),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  decoration: BoxDecoration(
+                    color: widget.value.page == 25
+                        ? Colors.white
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Image.asset(
+                        ImageAssets.report,
+                        height: 30,
+                        color: widget.value.page == 25
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Text(
+                        "Transaksi",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.value.page == 25
+                              ? Colors.black
+                              : Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              // InkWell(
+              //   onTap: () => widget.value.gantimenu(41),
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              //     decoration: BoxDecoration(
+              //       color: widget.value.page == 41
+              //           ? Colors.white
+              //           : Colors.transparent,
+              //       borderRadius: BorderRadius.circular(8),
+              //     ),
+              //     child: Row(
+              //       children: [
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Image.asset(
+              //           ImageAssets.report,
+              //           height: 30,
+              //           color: widget.value.page == 41
+              //               ? Colors.black
+              //               : Colors.white,
+              //         ),
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Text(
+              //           "Banyak Transaksi",
+              //           style: TextStyle(
+              //             fontSize: 16,
+              //             color: widget.value.page == 41
+              //                 ? Colors.black
+              //                 : Colors.white,
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // InkWell(
+              //   onTap: () => widget.value.gantimenu(42),
+              //   child: Container(
+              //     width: MediaQuery.of(context).size.width,
+              //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              //     decoration: BoxDecoration(
+              //       color: widget.value.page == 42
+              //           ? Colors.white
+              //           : Colors.transparent,
+              //       borderRadius: BorderRadius.circular(8),
+              //     ),
+              //     child: Row(
+              //       children: [
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Image.asset(
+              //           ImageAssets.report,
+              //           height: 30,
+              //           color: widget.value.page == 42
+              //               ? Colors.black
+              //               : Colors.white,
+              //         ),
+              //         SizedBox(
+              //           width: 16,
+              //         ),
+              //         Text(
+              //           "Back date",
+              //           style: TextStyle(
+              //             fontSize: 16,
+              //             color: widget.value.page == 42
+              //                 ? Colors.black
+              //                 : Colors.white,
+              //           ),
+              //         )
+              //       ],
+              //     ),
+              //   ),
+              // ),
+            ]),
       ],
     );
   }
@@ -2848,7 +2994,9 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
       },
       title: Container(
         decoration: BoxDecoration(
-          color: _isExpanded ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
+          color: _isExpanded
+              ? const Color.fromARGB(255, 0, 125, 228)
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -2870,7 +3018,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 44 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 44 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -2890,7 +3039,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
                   "Neraca Berjalan",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 44 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 44 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -2903,7 +3053,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 46 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 46 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -2923,7 +3074,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
                   "Laba Rugi Berjalan",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 46 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 46 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -2936,7 +3088,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 45 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 45 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -2956,7 +3109,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
                   "Neraca Periode",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 45 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 45 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -2969,7 +3123,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 49 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 49 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -2989,7 +3144,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
                   "Laba Rugi Periode",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 49 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 49 ? Colors.black : Colors.white,
                   ),
                 )
               ],
@@ -3002,7 +3158,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: BoxDecoration(
-              color: widget.value.page == 48 ? Colors.white : Colors.transparent,
+              color:
+                  widget.value.page == 48 ? Colors.white : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -3022,7 +3179,8 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
                   "GL / COA",
                   style: TextStyle(
                     fontSize: 16,
-                    color: widget.value.page == 48 ? Colors.black : Colors.white,
+                    color:
+                        widget.value.page == 48 ? Colors.black : Colors.white,
                   ),
                 )
               ],
