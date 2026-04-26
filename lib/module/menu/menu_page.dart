@@ -157,76 +157,76 @@ class MenuPage extends StatelessWidget {
                           const SizedBox(
                             height: 24,
                           ),
-                          // MenuHutangPiutangWidget(value: value),
-                          // const SizedBox(
-                          //   height: 24,
-                          // ),
-                          // MenuInventarisWidget(value: value),
-                          // const SizedBox(
-                          //   height: 24,
-                          // ),
-                          // MenuLaporanWidget(value: value),
-                          // const SizedBox(
-                          //   height: 16,
-                          // ),
-                          // InkWell(
-                          //   onTap: () => value.gantimenu(26),
-                          //   child: Container(
-                          //     width: double.infinity,
-                          //     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                          //     decoration: BoxDecoration(
-                          //       color: value.page == 26 ? Colors.white : Colors.transparent,
-                          //     ),
-                          //     child: Row(
-                          //       children: [
-                          //         Image.asset(
-                          //           ImageAssets.user,
-                          //           height: 30,
-                          //           color: value.page == 26 ? Colors.black : Colors.white,
-                          //         ),
-                          //         const SizedBox(
-                          //           width: 16,
-                          //         ),
-                          //         Text(
-                          //           "AKTIVASI USER",
-                          //           style: TextStyle(
-                          //             fontSize: 16,
-                          //             color: value.page == 26 ? Colors.black : Colors.white,
-                          //           ),
-                          //         )
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
-                          // InkWell(
-                          //   onTap: () => value.gantimenu(28),
-                          //   child: Container(
-                          //     width: double.infinity,
-                          //     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                          //     decoration: BoxDecoration(
-                          //       color: value.page == 28 ? Colors.white : Colors.transparent,
-                          //     ),
-                          //     child: Row(
-                          //       children: [
-                          //         Image.asset(
-                          //           ImageAssets.settings,
-                          //           height: 30,
-                          //           color: value.page == 28 ? Colors.black : Colors.white,
-                          //         ),
-                          //         const SizedBox(
-                          //           width: 16,
-                          //         ),
-                          //         Text(
-                          //           "SETINGS",
-                          //           style: TextStyle(
-                          //             fontSize: 16,
-                          //             color: value.page == 28 ? Colors.black : Colors.white,
-                          //           ),
-                          //         )
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
+                          MenuHutangPiutangWidget(value: value),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          MenuInventarisWidget(value: value),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          MenuLaporanWidget(value: value),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          InkWell(
+                            onTap: () => value.gantimenu(26),
+                            child: Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                              decoration: BoxDecoration(
+                                color: value.page == 26 ? Colors.white : Colors.transparent,
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    ImageAssets.user,
+                                    height: 30,
+                                    color: value.page == 26 ? Colors.black : Colors.white,
+                                  ),
+                                  const SizedBox(
+                                    width: 16,
+                                  ),
+                                  Text(
+                                    "AKTIVASI USER",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: value.page == 26 ? Colors.black : Colors.white,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () => value.gantimenu(28),
+                            child: Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                              decoration: BoxDecoration(
+                                color: value.page == 28 ? Colors.white : Colors.transparent,
+                              ),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    ImageAssets.settings,
+                                    height: 30,
+                                    color: value.page == 28 ? Colors.black : Colors.white,
+                                  ),
+                                  const SizedBox(
+                                    width: 16,
+                                  ),
+                                  Text(
+                                    "SETINGS",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: value.page == 28 ? Colors.black : Colors.white,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
