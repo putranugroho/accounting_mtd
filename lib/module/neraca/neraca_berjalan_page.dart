@@ -2,6 +2,7 @@ import 'package:accounting/module/neraca/neraca_berjalan_notiifer.dart';
 import 'package:accounting/utils/format_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:accounting/models/index.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/images_path.dart';
@@ -29,6 +30,85 @@ class NeracaBerjalanPage extends StatelessWidget {
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: value.konsolidasi,
+                            activeColor: colorPrimary,
+                            onChanged: value.isLoading ? null : (e) => value.toggleKonsolidasi(e ?? false),
+                          ),
+                          const Text(
+                            "Konsolidasi",
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(width: 16),
+                      SizedBox(
+                        width: 260,
+                        child: DropdownButtonFormField<KantorModel>(
+                          value: value.kantorModel,
+                          isExpanded: true,
+                          decoration: InputDecoration(
+                            labelText: "Kantor",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          items: value.listKantor.map((e) {
+                            return DropdownMenuItem<KantorModel>(
+                              value: e,
+                              child: Text(
+                                "${e.kodeKantor} - ${e.namaKantor}",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: value.konsolidasi || value.isLoading ? null : value.pilihKantor,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      SizedBox(
+                        width: 260,
+                        child: DropdownButtonFormField<KantorModel>(
+                          value: value.indukModel,
+                          isExpanded: true,
+                          decoration: InputDecoration(
+                            labelText: "Induk",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          items: value.listKantor.map((e) {
+                            return DropdownMenuItem<KantorModel>(
+                              value: e,
+                              child: Text(
+                                "${e.kodeKantor} - ${e.namaKantor}",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: value.konsolidasi || value.isLoading ? null : value.pilihInduk,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      ElevatedButton(
+                        onPressed: value.isLoading ? null : value.refresh,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: colorPrimary,
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: const Text(
+                          "Tampilkan",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
                       if (!value.isLoading)
                         GestureDetector(
                           onTap: value.refresh,

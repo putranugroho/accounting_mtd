@@ -3,6 +3,7 @@ import 'package:accounting/module/neraca/neraca_berjalan_notiifer.dart' show Ner
 import 'package:accounting/utils/format_currency.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:accounting/models/index.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/colors.dart';
@@ -32,49 +33,113 @@ class GlPage extends StatelessWidget {
                       const SizedBox(height: 16),
                       Row(
                         children: [
-                          SizedBox(
-                            width: 260,
-                            child: TextFormField(
-                              controller: value.cariSbbCoa,
-                              onChanged: (_) => value.filterTransaksiGl(),
-                              decoration: InputDecoration(
-                                labelText: "No SBB / COA",
-                                hintText: "Cari No SBB / nama COA",
-                                prefixIcon: const Icon(Icons.search),
-                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                          // SizedBox(
+                          //   width: 260,
+                          //   child: TextFormField(
+                          //     controller: value.cariSbbCoa,
+                          //     onChanged: (_) => value.filterTransaksiGl(),
+                          //     decoration: InputDecoration(
+                          //       labelText: "No SBB / COA",
+                          //       hintText: "Cari No SBB / nama COA",
+                          //       prefixIcon: const Icon(Icons.search),
+                          //       border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                          //     ),
+                          //   ),
+                          // ),
+                          // const SizedBox(width: 16),
+                          // SizedBox(
+                          //   width: 170,
+                          //   child: TextFormField(
+                          //     controller: value.tglAwalController,
+                          //     readOnly: true,
+                          //     onTap: () => value.pilihTglAwal(),
+                          //     decoration: InputDecoration(
+                          //       labelText: "Tanggal Awal",
+                          //       suffixIcon: const Icon(Icons.calendar_month),
+                          //       border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                          //     ),
+                          //   ),
+                          // ),
+                          // const SizedBox(width: 12),
+                          // const Text("s/d"),
+                          // const SizedBox(width: 12),
+                          // SizedBox(
+                          //   width: 170,
+                          //   child: TextFormField(
+                          //     controller: value.tglAkhirController,
+                          //     readOnly: true,
+                          //     onTap: () => value.pilihTglAkhir(),
+                          //     decoration: InputDecoration(
+                          //       labelText: "Tanggal Akhir",
+                          //       suffixIcon: const Icon(Icons.calendar_month),
+                          //       border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                          //     ),
+                          //   ),
+                          // ),
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: value.konsolidasi,
+                                activeColor: colorPrimary,
+                                onChanged: value.isLoading ? null : (e) => value.toggleKonsolidasi(e ?? false),
                               ),
+                              const Text(
+                                "Konsolidasi",
+                                style: TextStyle(fontSize: 12),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(width: 16),
+                          SizedBox(
+                            width: 220,
+                            child: DropdownButtonFormField<KantorModel>(
+                              value: value.kantorModel,
+                              isExpanded: true,
+                              decoration: InputDecoration(
+                                labelText: "Kantor",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              items: value.listKantor.map((e) {
+                                return DropdownMenuItem<KantorModel>(
+                                  value: e,
+                                  child: Text(
+                                    "${e.kodeKantor} - ${e.namaKantor}",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: value.konsolidasi || value.isLoading ? null : value.pilihKantor,
                             ),
                           ),
                           const SizedBox(width: 16),
                           SizedBox(
-                            width: 170,
-                            child: TextFormField(
-                              controller: value.tglAwalController,
-                              readOnly: true,
-                              onTap: () => value.pilihTglAwal(),
+                            width: 220,
+                            child: DropdownButtonFormField<KantorModel>(
+                              value: value.indukModel,
+                              isExpanded: true,
                               decoration: InputDecoration(
-                                labelText: "Tanggal Awal",
-                                suffixIcon: const Icon(Icons.calendar_month),
-                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                                labelText: "Induk",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
+                              items: value.listKantor.map((e) {
+                                return DropdownMenuItem<KantorModel>(
+                                  value: e,
+                                  child: Text(
+                                    "${e.kodeKantor} - ${e.namaKantor}",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: value.konsolidasi || value.isLoading ? null : value.pilihInduk,
                             ),
                           ),
-                          const SizedBox(width: 12),
-                          const Text("s/d"),
-                          const SizedBox(width: 12),
-                          SizedBox(
-                            width: 170,
-                            child: TextFormField(
-                              controller: value.tglAkhirController,
-                              readOnly: true,
-                              onTap: () => value.pilihTglAkhir(),
-                              decoration: InputDecoration(
-                                labelText: "Tanggal Akhir",
-                                suffixIcon: const Icon(Icons.calendar_month),
-                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                              ),
-                            ),
-                          ),
+                          const SizedBox(width: 16),
                           const SizedBox(width: 16),
                           ElevatedButton(
                             onPressed: value.isLoading ? null : value.refresh,
@@ -125,18 +190,13 @@ class GlPage extends StatelessWidget {
                     child: ListView(
                       children: [
                         // Transaksi section (only if data available)
-                        if (value.listTransaksiGl.isNotEmpty)
-                          _buildTransaksiCard(value),
+                        if (value.listTransaksiGl.isNotEmpty) _buildTransaksiCard(value),
 
                         // Saldo sections by golongan
-                        if (value.groupsAktiva.isNotEmpty)
-                          _buildSaldoSection("AKTIVA", value.groupsAktiva, value.cariSbbCoa.text),
-                        if (value.groupsPasiva.isNotEmpty)
-                          _buildSaldoSection("PASIVA", value.groupsPasiva, value.cariSbbCoa.text),
-                        if (value.groupsPendapatan.isNotEmpty)
-                          _buildSaldoSection("PENDAPATAN", value.groupsPendapatan, value.cariSbbCoa.text),
-                        if (value.groupsBiaya.isNotEmpty)
-                          _buildSaldoSection("BIAYA", value.groupsBiaya, value.cariSbbCoa.text),
+                        if (value.groupsAktiva.isNotEmpty) _buildSaldoSection("AKTIVA", value.groupsAktiva, value.cariSbbCoa.text),
+                        if (value.groupsPasiva.isNotEmpty) _buildSaldoSection("PASIVA", value.groupsPasiva, value.cariSbbCoa.text),
+                        if (value.groupsPendapatan.isNotEmpty) _buildSaldoSection("PENDAPATAN", value.groupsPendapatan, value.cariSbbCoa.text),
+                        if (value.groupsBiaya.isNotEmpty) _buildSaldoSection("BIAYA", value.groupsBiaya, value.cariSbbCoa.text),
 
                         // Legacy GlViewModel support
                         ...value.list.map((ac) => _buildLegacyGroup(ac)),
@@ -223,11 +283,13 @@ class GlPage extends StatelessWidget {
                 const Expanded(child: Text("TOTAL", style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(
                   width: 120,
-                  child: Text(FormatCurrency.oCcyDecimal.format(value.totalDb), textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text(FormatCurrency.oCcyDecimal.format(value.totalDb),
+                      textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.bold)),
                 ),
                 SizedBox(
                   width: 120,
-                  child: Text(FormatCurrency.oCcyDecimal.format(value.totalCr), textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text(FormatCurrency.oCcyDecimal.format(value.totalCr),
+                      textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.bold)),
                 ),
               ],
             ),
@@ -240,12 +302,15 @@ class GlPage extends StatelessWidget {
   Widget _buildSaldoSection(String title, List<NeracaGroup> groups, String keyword) {
     final filteredGroups = keyword.isEmpty
         ? groups
-        : groups.map((g) {
-            final filteredItems = g.items.where((i) =>
-                i.nosbb.toLowerCase().contains(keyword.toLowerCase()) ||
-                i.namaSbb.toLowerCase().contains(keyword.toLowerCase())).toList();
-            return filteredItems.isEmpty ? null : NeracaGroup(nobb: g.nobb, items: filteredItems);
-          }).whereType<NeracaGroup>().toList();
+        : groups
+            .map((g) {
+              final filteredItems = g.items
+                  .where((i) => i.nosbb.toLowerCase().contains(keyword.toLowerCase()) || i.namaSbb.toLowerCase().contains(keyword.toLowerCase()))
+                  .toList();
+              return filteredItems.isEmpty ? null : NeracaGroup(nobb: g.nobb, items: filteredItems);
+            })
+            .whereType<NeracaGroup>()
+            .toList();
 
     if (filteredGroups.isEmpty) return const SizedBox.shrink();
 

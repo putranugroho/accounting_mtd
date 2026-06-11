@@ -2,6 +2,7 @@ import 'package:accounting/models/index.dart';
 import 'package:accounting/pref/pref.dart';
 import 'package:accounting/repository/SetupRepository.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 import '../../network/network.dart';
 import '../neraca/neraca_berjalan_notiifer.dart' show NeracaFlatItem, NeracaGroup;
@@ -15,14 +16,91 @@ class LabaRugiBerjalanNotifier extends ChangeNotifier {
 
   bool isLoading = true;
   String? errorMessage;
+
+  bool konsolidasi = false;
+  UserModel? users;
+
+  List<KantorModel> listKantor = [];
+  KantorModel? kantorModel;
+  KantorModel? indukModel;
+
   double totalBiaya = 0;
   double totalPendapatan = 0;
   List<NeracaGroup> groupsBiaya = [];
   List<NeracaGroup> groupsPendapatan = [];
 
+  void toggleKonsolidasi(bool value) {
+    konsolidasi = value;
+
+    if (konsolidasi) {
+      kantorModel = null;
+      indukModel = null;
+    } else {
+      if (listKantor.isNotEmpty && users != null) {
+        kantorModel = listKantor.where((e) => e.kodeKantor == users!.kodeKantor).isNotEmpty
+            ? listKantor.where((e) => e.kodeKantor == users!.kodeKantor).first
+            : listKantor.first;
+
+        indukModel = listKantor.where((e) => e.kodeKantor == users!.kodeInduk).isNotEmpty
+            ? listKantor.where((e) => e.kodeKantor == users!.kodeInduk).first
+            : kantorModel;
+      }
+    }
+
+    notifyListeners();
+  }
+
+  Future<void> getKantor() async {
+    if (users == null) return;
+
+    listKantor.clear();
+    notifyListeners();
+
+    final body = {
+      "kode_pt": users!.kodePt,
+    };
+
+    final response = await Setuprepository.getKantor(
+      token,
+      NetworkURL.getKantor(),
+      jsonEncode(body),
+    );
+
+    final status = response['status']?.toString().toLowerCase() ?? '';
+
+    if (status == "success" || status == "sukses") {
+      for (Map<String, dynamic> item in response['data']) {
+        listKantor.add(KantorModel.fromJson(item));
+      }
+
+      if (listKantor.isNotEmpty) {
+        kantorModel = listKantor.where((e) => e.kodeKantor == users!.kodeKantor).isNotEmpty
+            ? listKantor.where((e) => e.kodeKantor == users!.kodeKantor).first
+            : listKantor.first;
+
+        indukModel = listKantor.where((e) => e.kodeKantor == users!.kodeInduk).isNotEmpty
+            ? listKantor.where((e) => e.kodeKantor == users!.kodeInduk).first
+            : kantorModel;
+      }
+    }
+
+    notifyListeners();
+  }
+
+  void pilihKantor(KantorModel? value) {
+    kantorModel = value;
+    notifyListeners();
+  }
+
+  void pilihInduk(KantorModel? value) {
+    indukModel = value;
+    notifyListeners();
+  }
+
   Future<void> _init() async {
-    final users = await Pref().getUsers();
-    _fetchData(users);
+    users = await Pref().getUsers();
+    await getKantor();
+    await _fetchData(users!);
   }
 
   Future<void> _fetchData(UserModel users) async {
@@ -39,10 +117,11 @@ class LabaRugiBerjalanNotifier extends ChangeNotifier {
         NetworkURL.labaRugiBerjalan(),
         {
           "kode_pt": users.kodePt,
-          "kode_kantor": users.kodeKantor,
-          "kode_induk": users.kodeInduk,
+          "kode_kantor": konsolidasi ? "" : (kantorModel?.kodeKantor ?? users.kodeKantor),
+          "kode_induk": konsolidasi ? "" : (indukModel?.kodeKantor ?? users.kodeInduk),
           "userinput": users.namauser,
           "modul": "labarugi",
+          "konsolidasi": konsolidasi,
           "userterm": users.terminalId,
         },
       );
@@ -79,7 +158,7 @@ class LabaRugiBerjalanNotifier extends ChangeNotifier {
   }
 
   Future<void> refresh() async {
-    final users = await Pref().getUsers();
-    _fetchData(users);
+    users ??= await Pref().getUsers();
+    await _fetchData(users!);
   }
 }
