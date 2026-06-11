@@ -1,0 +1,21 @@
+# Credentials & sensitive config
+lib/network/network.dart
+lib/firebase_options.dart
+google-services.json
+GoogleService-Info.plist
+.env
+*.env
+
+# Build output
+build/
+.dart_tool/
+.pub-cache/
+.pub/
+
+# Platform-specific
+android/
+ios/
+linux/
+macos/
+windows/
+web/

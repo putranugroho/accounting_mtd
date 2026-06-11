@@ -1,7 +1,6 @@
 import 'package:accounting/module/neraca/neraca_berjalan_notiifer.dart';
 import 'package:accounting/utils/format_currency.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/colors.dart';
@@ -16,350 +15,216 @@ class NeracaBerjalanPage extends StatelessWidget {
       create: (_) => NeracaBerjalanNotiifer(context: context),
       child: Consumer<NeracaBerjalanNotiifer>(
         builder: (context, value, child) => SafeArea(
-            child: Scaffold(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  children: [
-                    const Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            "Neraca Berjalan",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(color: colorPrimary, borderRadius: BorderRadius.circular(8)),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            ImageAssets.excel,
-                            height: 15,
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          const Text(
-                            "Download to Excel",
-                            style: TextStyle(fontSize: 12, color: Colors.white),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      width: 80,
-                      child: const Text("NO SBB"),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 16),
-                        child: const Text("KETERANGAN"),
-                      ),
-                    ),
-                    Container(
-                      width: 180,
-                      margin: const EdgeInsets.only(right: 16),
-                      child: const Text("SALDO"),
-                    ),
-                    const SizedBox(
-                      width: 24,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      width: 80,
-                      child: const Text("NO SBB"),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 16),
-                        child: const Text("KETERANGAN"),
-                      ),
-                    ),
-                    Container(
-                      width: 180,
-                      margin: const EdgeInsets.only(right: 16),
-                      child: const Text("SALDO"),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                height: 1,
-                color: Colors.grey,
-              ),
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Scaffold(
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(20),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                          child: ListView.builder(
-                              itemCount: value.listNeraca.where((e) => e.golAcc == "1").length,
-                              shrinkWrap: true,
-                              physics: const ClampingScrollPhysics(),
-                              itemBuilder: (context, i) {
-                                final data = value.listNeraca.where((e) => e.golAcc == "1").toList()[i];
-                                return Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  children: [
-                                    ListView.builder(
-                                        itemCount: data.sbbItem.length,
-                                        shrinkWrap: true,
-                                        physics: const ClampingScrollPhysics(),
-                                        itemBuilder: (context, b) {
-                                          final a = data.sbbItem[b];
-                                          return Column(
-                                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Container(
-                                                    margin: const EdgeInsets.only(right: 16),
-                                                    width: 80,
-                                                    child: Text(
-                                                      a.nosbb,
-                                                      style: const TextStyle(fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Container(
-                                                      margin: const EdgeInsets.only(right: 16),
-                                                      child: Text(
-                                                        a.namaSbb,
-                                                        style: const TextStyle(fontSize: 12),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    width: 180,
-                                                    margin: const EdgeInsets.only(right: 16),
-                                                    child: Text(
-                                                      FormatCurrency.oCcyDecimal.format(a.saldo),
-                                                      textAlign: TextAlign.end,
-                                                      style: const TextStyle(fontSize: 12),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              const SizedBox(
-                                                height: 4,
-                                              )
-                                            ],
-                                          );
-                                        }),
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          child: Container(
-                                            margin: const EdgeInsets.only(right: 16),
-                                            child: Text(
-                                              data.namaBb,
-                                              textAlign: TextAlign.end,
-                                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 180,
-                                          margin: const EdgeInsets.only(right: 16),
-                                          child: Text(
-                                            FormatCurrency.oCcyDecimal.format(data.sbbItem.map((e) => e.saldo).reduce((a, b) => a + b)),
-                                            textAlign: TextAlign.end,
-                                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    )
-                                  ],
-                                );
-                              })),
-                      const SizedBox(
-                        width: 24,
+                      const Expanded(
+                        child: Text(
+                          "Neraca Berjalan",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
                       ),
-                      Expanded(
-                          child: ListView.builder(
-                              itemCount: value.listNeraca.where((e) => e.golAcc == "2").length,
-                              shrinkWrap: true,
-                              physics: const ClampingScrollPhysics(),
-                              itemBuilder: (context, i) {
-                                final data = value.listNeraca.where((e) => e.golAcc == "2").toList()[i];
-                                return Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                                  children: [
-                                    ListView.builder(
-                                        itemCount: data.sbbItem.where((e) => e.nosbb != "600100000001" && e.nosbb != "600200000001").length,
-                                        shrinkWrap: true,
-                                        physics: const ClampingScrollPhysics(),
-                                        itemBuilder: (context, b) {
-                                          final a = data.sbbItem.where((e) => e.nosbb != "600100000001" && e.nosbb != "600200000001").toList()[b];
-                                          return Column(
-                                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Container(
-                                                    margin: const EdgeInsets.only(right: 16),
-                                                    width: 80,
-                                                    child: Text(
-                                                      a.nosbb,
-                                                      style: const TextStyle(fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Container(
-                                                      margin: const EdgeInsets.only(right: 16),
-                                                      child: Text(
-                                                        a.namaSbb,
-                                                        style: const TextStyle(fontSize: 12),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    width: 180,
-                                                    margin: const EdgeInsets.only(right: 16),
-                                                    child: Text(
-                                                      FormatCurrency.oCcyDecimal.format(a.saldo),
-                                                      textAlign: TextAlign.end,
-                                                      style: const TextStyle(fontSize: 12),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              const SizedBox(
-                                                height: 4,
-                                              )
-                                            ],
-                                          );
-                                        }),
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          child: Container(
-                                            margin: const EdgeInsets.only(right: 16),
-                                            child: Text(
-                                              data.namaBb,
-                                              textAlign: TextAlign.end,
-                                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 180,
-                                          margin: const EdgeInsets.only(right: 16),
-                                          child: Text(
-                                            FormatCurrency.oCcyDecimal.format(data.sbbItem.map((e) => e.saldo).reduce((a, b) => a + b)),
-                                            textAlign: TextAlign.end,
-                                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    )
-                                  ],
-                                );
-                              })),
+                      if (!value.isLoading)
+                        GestureDetector(
+                          onTap: value.refresh,
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 12),
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Icon(Icons.refresh, size: 18),
+                          ),
+                        ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(color: colorPrimary, borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: [
+                            Image.asset(ImageAssets.excel, height: 15),
+                            const SizedBox(width: 8),
+                            const Text("Download to Excel", style: TextStyle(fontSize: 12, color: Colors.white)),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                height: 1,
-                color: Colors.grey,
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      width: 80,
-                      child: const Text(""),
+                if (value.isLoading)
+                  const Expanded(child: Center(child: CircularProgressIndicator()))
+                else if (value.errorMessage != null)
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(Icons.error_outline, size: 48, color: Colors.red),
+                          const SizedBox(height: 12),
+                          Text(value.errorMessage!, textAlign: TextAlign.center),
+                          const SizedBox(height: 12),
+                          ElevatedButton(onPressed: value.refresh, child: const Text("Coba Lagi")),
+                        ],
+                      ),
                     ),
-                    Expanded(
+                  )
+                else ...[
+                  const SizedBox(height: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    color: const Color(0xFFF5F7FA),
+                    child: Row(
+                      children: [
+                        _headerCell(130, "NO SBB"),
+                        _headerExpanded("KETERANGAN"),
+                        _headerCell(160, "SALDO", align: TextAlign.end),
+                        const SizedBox(width: 24),
+                        _headerCell(130, "NO SBB"),
+                        _headerExpanded("KETERANGAN"),
+                        _headerCell(160, "SALDO", align: TextAlign.end),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
                       child: Container(
-                        margin: const EdgeInsets.only(right: 16),
-                        child: const Text(
-                          "TOTAL AKTIVA",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 12),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(child: _buildColumn(value.groupsAktiva)),
+                            const SizedBox(width: 24),
+                            Expanded(child: _buildColumn(value.groupsPasiva)),
+                          ],
                         ),
                       ),
                     ),
-                    Container(
-                      width: 180,
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text(
-                        formatRounded(value.totalAktiva),
-                        textAlign: TextAlign.end,
-                        style: const TextStyle(fontSize: 12),
-                      ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    color: const Color(0xFFEEF2F7),
+                    child: Row(
+                      children: [
+                        _totalLabel("TOTAL AKTIVA"),
+                        _totalValue(value.totalAktiva),
+                        const SizedBox(width: 24),
+                        _totalLabel("TOTAL PASIVA"),
+                        _totalValue(value.totalPasiva),
+                      ],
                     ),
-                    const SizedBox(
-                      width: 24,
+                  ),
+                  const SizedBox(height: 24),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildColumn(List<NeracaGroup> groups) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: groups.map((group) => _buildGroup(group)).toList(),
+    );
+  }
+
+  Widget _buildGroup(NeracaGroup group) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        ...group.items.map((a) => Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
+              decoration: const BoxDecoration(
+                border: Border(bottom: BorderSide(color: Color(0xFFF0F0F0))),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 130,
+                    child: Text(a.nosbb, style: const TextStyle(fontSize: 11, color: Color(0xFF555555))),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Text(a.namaSbb, style: const TextStyle(fontSize: 11)),
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 16),
-                      width: 80,
-                      child: const Text(""),
+                  ),
+                  SizedBox(
+                    width: 160,
+                    child: Text(
+                      FormatCurrency.oCcyDecimal.format(a.saldo),
+                      textAlign: TextAlign.end,
+                      style: const TextStyle(fontSize: 11),
                     ),
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 16),
-                        child: const Text(
-                          "TOTAL PASIVA",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 180,
-                      margin: const EdgeInsets.only(right: 16),
-                      child: Text(
-                        formatRounded(value.totalPasiva),
-                        textAlign: TextAlign.end,
-                        style: const TextStyle(fontSize: 12),
-                      ),
-                    ),
-                  ],
+                  ),
+                ],
+              ),
+            )),
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+          margin: const EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF5F7FA),
+            border: Border(bottom: BorderSide(color: Colors.grey.shade300, width: 1.5)),
+          ),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 130,
+                child: Text(group.nobb, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11, color: Color(0xFF333333))),
+              ),
+              const Expanded(child: Text("Subtotal", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11))),
+              SizedBox(
+                width: 160,
+                child: Text(
+                  FormatCurrency.oCcyDecimal.format(group.total),
+                  textAlign: TextAlign.end,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
                 ),
               ),
-              const SizedBox(
-                height: 80,
-              )
             ],
           ),
-        )),
+        ),
+      ],
+    );
+  }
+
+  Widget _headerCell(double width, String text, {TextAlign align = TextAlign.start}) {
+    return SizedBox(
+      width: width,
+      child: Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11, color: Color(0xFF666666)), textAlign: align),
+    );
+  }
+
+  Widget _headerExpanded(String text) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 12),
+        child: Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11, color: Color(0xFF666666))),
+      ),
+    );
+  }
+
+  Widget _totalLabel(String label) {
+    return Expanded(
+      child: Text(label, textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+    );
+  }
+
+  Widget _totalValue(double amount) {
+    return SizedBox(
+      width: 160,
+      child: Text(
+        formatRounded(amount),
+        textAlign: TextAlign.end,
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
       ),
     );
   }

@@ -169,6 +169,25 @@ class Setuprepository {
     }
   }
 
+  static Future<dynamic> fetch(
+    String url,
+    Map<String, dynamic> body,
+  ) async {
+    Dio dio = Dio(
+      BaseOptions(headers: {
+        'api-key': '123',
+        'Content-Type': 'application/json',
+      }),
+    );
+    try {
+      final response = await dio.post(url, data: jsonEncode(body));
+      final data = response.data;
+      return data is String ? jsonDecode(data) : data;
+    } on DioException catch (e) {
+      return {'status': 'error', 'message': e.message ?? 'Request failed'};
+    }
+  }
+
   static Future<dynamic> updatesetup(
     String token,
     String url,

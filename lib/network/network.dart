@@ -449,6 +449,18 @@ class NetworkURL {
     return "$url/report";
   }
 
+  static String neracaBerjalanV2() {
+    return "$url/neraca-berjalan";
+  }
+
+  static String labaRugiBerjalan() {
+    return "$url/labarugi-berjalan";
+  }
+
+  static String saldoGl() {
+    return "$url/saldo-gl";
+  }
+
   static String transaksi() {
     return "$url/transaksi";
   }
