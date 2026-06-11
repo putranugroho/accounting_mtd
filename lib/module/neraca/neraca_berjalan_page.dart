@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/images_path.dart';
-import 'neraca_periode_notifier.dart';
 
 class NeracaBerjalanPage extends StatelessWidget {
   const NeracaBerjalanPage({super.key});
@@ -40,11 +39,8 @@ class NeracaBerjalanPage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 8),
-                      decoration: BoxDecoration(
-                          color: colorPrimary,
-                          borderRadius: BorderRadius.circular(8)),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(color: colorPrimary, borderRadius: BorderRadius.circular(8)),
                       child: Row(
                         children: [
                           Image.asset(
@@ -122,18 +118,13 @@ class NeracaBerjalanPage extends StatelessWidget {
                     children: [
                       Expanded(
                           child: ListView.builder(
-                              itemCount: value.listNeraca
-                                  .where((e) => e.golAcc == "1")
-                                  .length,
+                              itemCount: value.listNeraca.where((e) => e.golAcc == "1").length,
                               shrinkWrap: true,
                               physics: const ClampingScrollPhysics(),
                               itemBuilder: (context, i) {
-                                final data = value.listNeraca
-                                    .where((e) => e.golAcc == "1")
-                                    .toList()[i];
+                                final data = value.listNeraca.where((e) => e.golAcc == "1").toList()[i];
                                 return Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
                                     ListView.builder(
                                         itemCount: data.sbbItem.length,
@@ -142,45 +133,34 @@ class NeracaBerjalanPage extends StatelessWidget {
                                         itemBuilder: (context, b) {
                                           final a = data.sbbItem[b];
                                           return Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.stretch,
+                                            crossAxisAlignment: CrossAxisAlignment.stretch,
                                             children: [
                                               Row(
                                                 children: [
                                                   Container(
-                                                    margin:
-                                                        const EdgeInsets.only(
-                                                            right: 16),
+                                                    margin: const EdgeInsets.only(right: 16),
                                                     width: 80,
                                                     child: Text(
                                                       a.nosbb,
-                                                      style: const TextStyle(
-                                                          fontSize: 12),
+                                                      style: const TextStyle(fontSize: 12),
                                                     ),
                                                   ),
                                                   Expanded(
                                                     child: Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              right: 16),
+                                                      margin: const EdgeInsets.only(right: 16),
                                                       child: Text(
                                                         a.namaSbb,
-                                                        style: const TextStyle(
-                                                            fontSize: 12),
+                                                        style: const TextStyle(fontSize: 12),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
                                                     width: 180,
-                                                    margin:
-                                                        const EdgeInsets.only(
-                                                            right: 16),
+                                                    margin: const EdgeInsets.only(right: 16),
                                                     child: Text(
-                                                      FormatCurrency.oCcyDecimal
-                                                          .format(a.saldo),
+                                                      FormatCurrency.oCcyDecimal.format(a.saldo),
                                                       textAlign: TextAlign.end,
-                                                      style: const TextStyle(
-                                                          fontSize: 12),
+                                                      style: const TextStyle(fontSize: 12),
                                                     ),
                                                   ),
                                                 ],
@@ -195,30 +175,21 @@ class NeracaBerjalanPage extends StatelessWidget {
                                       children: [
                                         Expanded(
                                           child: Container(
-                                            margin: const EdgeInsets.only(
-                                                right: 16),
+                                            margin: const EdgeInsets.only(right: 16),
                                             child: Text(
                                               data.namaBb,
                                               textAlign: TextAlign.end,
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 12),
+                                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                                             ),
                                           ),
                                         ),
                                         Container(
                                           width: 180,
-                                          margin:
-                                              const EdgeInsets.only(right: 16),
+                                          margin: const EdgeInsets.only(right: 16),
                                           child: Text(
-                                            FormatCurrency.oCcyDecimal.format(
-                                                data.sbbItem
-                                                    .map((e) => e.saldo)
-                                                    .reduce((a, b) => a + b)),
+                                            FormatCurrency.oCcyDecimal.format(data.sbbItem.map((e) => e.saldo).reduce((a, b) => a + b)),
                                             textAlign: TextAlign.end,
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
+                                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                                           ),
                                         ),
                                       ],
@@ -234,73 +205,49 @@ class NeracaBerjalanPage extends StatelessWidget {
                       ),
                       Expanded(
                           child: ListView.builder(
-                              itemCount: value.listNeraca
-                                  .where((e) => e.golAcc == "2")
-                                  .length,
+                              itemCount: value.listNeraca.where((e) => e.golAcc == "2").length,
                               shrinkWrap: true,
                               physics: const ClampingScrollPhysics(),
                               itemBuilder: (context, i) {
-                                final data = value.listNeraca
-                                    .where((e) => e.golAcc == "2")
-                                    .toList()[i];
+                                final data = value.listNeraca.where((e) => e.golAcc == "2").toList()[i];
                                 return Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
                                     ListView.builder(
-                                        itemCount: data.sbbItem
-                                            .where((e) =>
-                                                e.nosbb != "600100000001" &&
-                                                e.nosbb != "600200000001")
-                                            .length,
+                                        itemCount: data.sbbItem.where((e) => e.nosbb != "600100000001" && e.nosbb != "600200000001").length,
                                         shrinkWrap: true,
                                         physics: const ClampingScrollPhysics(),
                                         itemBuilder: (context, b) {
-                                          final a = data.sbbItem
-                                              .where((e) =>
-                                                  e.nosbb != "600100000001" &&
-                                                  e.nosbb != "600200000001")
-                                              .toList()[b];
+                                          final a = data.sbbItem.where((e) => e.nosbb != "600100000001" && e.nosbb != "600200000001").toList()[b];
                                           return Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.stretch,
+                                            crossAxisAlignment: CrossAxisAlignment.stretch,
                                             children: [
                                               Row(
                                                 children: [
                                                   Container(
-                                                    margin:
-                                                        const EdgeInsets.only(
-                                                            right: 16),
+                                                    margin: const EdgeInsets.only(right: 16),
                                                     width: 80,
                                                     child: Text(
                                                       a.nosbb,
-                                                      style: const TextStyle(
-                                                          fontSize: 12),
+                                                      style: const TextStyle(fontSize: 12),
                                                     ),
                                                   ),
                                                   Expanded(
                                                     child: Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                              right: 16),
+                                                      margin: const EdgeInsets.only(right: 16),
                                                       child: Text(
                                                         a.namaSbb,
-                                                        style: const TextStyle(
-                                                            fontSize: 12),
+                                                        style: const TextStyle(fontSize: 12),
                                                       ),
                                                     ),
                                                   ),
                                                   Container(
                                                     width: 180,
-                                                    margin:
-                                                        const EdgeInsets.only(
-                                                            right: 16),
+                                                    margin: const EdgeInsets.only(right: 16),
                                                     child: Text(
-                                                      FormatCurrency.oCcyDecimal
-                                                          .format(a.saldo),
+                                                      FormatCurrency.oCcyDecimal.format(a.saldo),
                                                       textAlign: TextAlign.end,
-                                                      style: const TextStyle(
-                                                          fontSize: 12),
+                                                      style: const TextStyle(fontSize: 12),
                                                     ),
                                                   ),
                                                 ],
@@ -315,30 +262,21 @@ class NeracaBerjalanPage extends StatelessWidget {
                                       children: [
                                         Expanded(
                                           child: Container(
-                                            margin: const EdgeInsets.only(
-                                                right: 16),
+                                            margin: const EdgeInsets.only(right: 16),
                                             child: Text(
                                               data.namaBb,
                                               textAlign: TextAlign.end,
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 12),
+                                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                                             ),
                                           ),
                                         ),
                                         Container(
                                           width: 180,
-                                          margin:
-                                              const EdgeInsets.only(right: 16),
+                                          margin: const EdgeInsets.only(right: 16),
                                           child: Text(
-                                            FormatCurrency.oCcyDecimal.format(
-                                                data.sbbItem
-                                                    .map((e) => e.saldo)
-                                                    .reduce((a, b) => a + b)),
+                                            FormatCurrency.oCcyDecimal.format(data.sbbItem.map((e) => e.saldo).reduce((a, b) => a + b)),
                                             textAlign: TextAlign.end,
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
+                                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                                           ),
                                         ),
                                       ],

@@ -237,7 +237,7 @@ class MenuPage extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              value.users!.namauser,
+                              value.users?.namauser ?? "Memuat user...",
                               style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.white,
