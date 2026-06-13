@@ -307,7 +307,13 @@ class GlPage extends StatelessWidget {
               final filteredItems = g.items
                   .where((i) => i.nosbb.toLowerCase().contains(keyword.toLowerCase()) || i.namaSbb.toLowerCase().contains(keyword.toLowerCase()))
                   .toList();
-              return filteredItems.isEmpty ? null : NeracaGroup(nobb: g.nobb, items: filteredItems);
+              return filteredItems.isEmpty
+                  ? null
+                  : NeracaGroup(
+                      nobb: g.nobb,
+                      namaBb: g.namaBb,
+                      items: filteredItems,
+                    );
             })
             .whereType<NeracaGroup>()
             .toList();

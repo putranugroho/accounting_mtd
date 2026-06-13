@@ -142,8 +142,21 @@ class LabaRugiBerjalanNotifier extends ChangeNotifier {
           }
         }
 
-        groupsBiaya = biaya.entries.map((e) => NeracaGroup(nobb: e.key, items: e.value)).toList();
-        groupsPendapatan = pendapatan.entries.map((e) => NeracaGroup(nobb: e.key, items: e.value)).toList();
+        groupsBiaya = biaya.entries.map((e) {
+          return NeracaGroup(
+            nobb: e.key,
+            namaBb: e.value.isNotEmpty ? e.value.first.namaBb : e.key,
+            items: e.value,
+          );
+        }).toList();
+
+        groupsPendapatan = pendapatan.entries.map((e) {
+          return NeracaGroup(
+            nobb: e.key,
+            namaBb: e.value.isNotEmpty ? e.value.first.namaBb : e.key,
+            items: e.value,
+          );
+        }).toList();
         totalBiaya = groupsBiaya.fold(0, (s, g) => s + g.total);
         totalPendapatan = groupsPendapatan.fold(0, (s, g) => s + g.total);
       } else {

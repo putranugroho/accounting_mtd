@@ -163,7 +163,7 @@ class LabaRugiBerjalanPage extends StatelessWidget {
                         _headerCell(130, "NO SBB"),
                         _headerExpanded("KETERANGAN"),
                         _headerCell(160, "SALDO", align: TextAlign.end),
-                        const SizedBox(width: 24),
+                        const SizedBox(width: 75),
                         _headerCell(130, "NO SBB"),
                         _headerExpanded("KETERANGAN"),
                         _headerCell(160, "SALDO", align: TextAlign.end),
@@ -178,7 +178,7 @@ class LabaRugiBerjalanPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(child: _buildColumn(value.groupsBiaya)),
-                            const SizedBox(width: 24),
+                            const SizedBox(width: 75),
                             Expanded(child: _buildColumn(value.groupsPendapatan)),
                           ],
                         ),
@@ -192,7 +192,7 @@ class LabaRugiBerjalanPage extends StatelessWidget {
                       children: [
                         _totalLabel("TOTAL BIAYA"),
                         _totalValue(value.totalBiaya),
-                        const SizedBox(width: 24),
+                        const SizedBox(width: 75),
                         _totalLabel("TOTAL PENDAPATAN"),
                         _totalValue(value.totalPendapatan),
                       ],
@@ -258,9 +258,16 @@ class LabaRugiBerjalanPage extends StatelessWidget {
             children: [
               SizedBox(
                 width: 130,
-                child: Text(group.nobb, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11, color: Color(0xFF333333))),
               ),
-              const Expanded(child: Text("Subtotal", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11))),
+              Expanded(
+                child: Text(
+                  group.namaBb.isNotEmpty ? group.namaBb : "Subtotal",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 11,
+                  ),
+                ),
+              ),
               SizedBox(
                 width: 160,
                 child: Text(

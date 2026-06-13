@@ -8,12 +8,14 @@ import '../../../network/network.dart';
 
 class NeracaFlatItem {
   final String nobb;
+  final String namaBb;
   final String nosbb;
   final String namaSbb;
   final double saldo;
 
   NeracaFlatItem({
     required this.nobb,
+    required this.namaBb,
     required this.nosbb,
     required this.namaSbb,
     required this.saldo,
@@ -21,6 +23,7 @@ class NeracaFlatItem {
 
   factory NeracaFlatItem.fromJson(Map<String, dynamic> json) => NeracaFlatItem(
         nobb: json['nobb']?.toString() ?? '',
+        namaBb: json['namabb']?.toString() ?? json['nama_bb']?.toString() ?? '',
         nosbb: json['nosbb']?.toString() ?? '',
         namaSbb: json['namasbb']?.toString() ?? json['nama_sbb']?.toString() ?? '',
         saldo: _parseDouble(json['saldoakhir'] ?? json['saldo']),
@@ -35,9 +38,14 @@ class NeracaFlatItem {
 
 class NeracaGroup {
   final String nobb;
+  final String namaBb;
   final List<NeracaFlatItem> items;
 
-  NeracaGroup({required this.nobb, required this.items});
+  NeracaGroup({
+    required this.nobb,
+    required this.namaBb,
+    required this.items,
+  });
 
   double get total => items.fold(0, (s, e) => s + e.saldo);
 }
@@ -176,8 +184,21 @@ class NeracaBerjalanNotiifer extends ChangeNotifier {
           }
         }
 
-        groupsAktiva = aktiva.entries.map((e) => NeracaGroup(nobb: e.key, items: e.value)).toList();
-        groupsPasiva = pasiva.entries.map((e) => NeracaGroup(nobb: e.key, items: e.value)).toList();
+        groupsAktiva = aktiva.entries.map((e) {
+          return NeracaGroup(
+            nobb: e.key,
+            namaBb: e.value.isNotEmpty ? e.value.first.namaBb : e.key,
+            items: e.value,
+          );
+        }).toList();
+
+        groupsPasiva = pasiva.entries.map((e) {
+          return NeracaGroup(
+            nobb: e.key,
+            namaBb: e.value.isNotEmpty ? e.value.first.namaBb : e.key,
+            items: e.value,
+          );
+        }).toList();
         totalAktiva = groupsAktiva.fold(0, (s, g) => s + g.total);
         totalPasiva = groupsPasiva.fold(0, (s, g) => s + g.total);
       } else {
