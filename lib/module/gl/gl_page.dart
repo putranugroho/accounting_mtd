@@ -31,7 +31,10 @@ class GlPage extends StatelessWidget {
                     children: [
                       const Text("GL / COA", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       const SizedBox(height: 16),
-                      Row(
+                      Wrap(
+                        spacing: 16,
+                        runSpacing: 12,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           // SizedBox(
                           //   width: 260,
@@ -140,7 +143,6 @@ class GlPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 16),
-                          const SizedBox(width: 16),
                           ElevatedButton(
                             onPressed: value.isLoading ? null : value.refresh,
                             style: ElevatedButton.styleFrom(
@@ -150,15 +152,21 @@ class GlPage extends StatelessWidget {
                             ),
                             child: const Text("Tampilkan", style: TextStyle(color: Colors.white)),
                           ),
-                          const Spacer(),
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                            decoration: BoxDecoration(color: colorPrimary, borderRadius: BorderRadius.circular(8)),
+                            decoration: BoxDecoration(
+                              color: colorPrimary,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
                             child: Row(
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 Image.asset(ImageAssets.excel, height: 15),
                                 const SizedBox(width: 8),
-                                const Text("Download to Excel", style: TextStyle(fontSize: 12, color: Colors.white)),
+                                const Text(
+                                  "Download to Excel",
+                                  style: TextStyle(fontSize: 12, color: Colors.white),
+                                ),
                               ],
                             ),
                           ),
@@ -190,13 +198,14 @@ class GlPage extends StatelessWidget {
                     child: ListView(
                       children: [
                         // Transaksi section (only if data available)
-                        if (value.listTransaksiGl.isNotEmpty) _buildTransaksiCard(value),
+                        if (value.selectedNoSbb.isNotEmpty) _buildTransaksiCard(value),
 
                         // Saldo sections by golongan
-                        if (value.groupsAktiva.isNotEmpty) _buildSaldoSection("AKTIVA", value.groupsAktiva, value.cariSbbCoa.text),
-                        if (value.groupsPasiva.isNotEmpty) _buildSaldoSection("PASIVA", value.groupsPasiva, value.cariSbbCoa.text),
-                        if (value.groupsPendapatan.isNotEmpty) _buildSaldoSection("PENDAPATAN", value.groupsPendapatan, value.cariSbbCoa.text),
-                        if (value.groupsBiaya.isNotEmpty) _buildSaldoSection("BIAYA", value.groupsBiaya, value.cariSbbCoa.text),
+                        if (value.groupsAktiva.isNotEmpty) _buildSaldoSection(context, "AKTIVA", value.groupsAktiva, value.cariSbbCoa.text),
+                        if (value.groupsPasiva.isNotEmpty) _buildSaldoSection(context, "PASIVA", value.groupsPasiva, value.cariSbbCoa.text),
+                        if (value.groupsPendapatan.isNotEmpty)
+                          _buildSaldoSection(context, "PENDAPATAN", value.groupsPendapatan, value.cariSbbCoa.text),
+                        if (value.groupsBiaya.isNotEmpty) _buildSaldoSection(context, "BIAYA", value.groupsBiaya, value.cariSbbCoa.text),
 
                         // Legacy GlViewModel support
                         ...value.list.map((ac) => _buildLegacyGroup(ac)),
@@ -230,7 +239,36 @@ class GlPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text("Transaksi SBB / COA Terkait", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  value.selectedNoSbb.isEmpty
+                      ? "Transaksi SBB / COA Terkait"
+                      : "Detail Jurnal ${value.selectedNoSbb} - ${value.selectedNamaSbb} | 7 hari Terakhir",
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: value.closeDetailJurnal,
+                child: Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.close,
+                    size: 18,
+                  ),
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: 12),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -246,35 +284,43 @@ class GlPage extends StatelessWidget {
               ],
             ),
           ),
-          value.listTransaksiGlFiltered.isEmpty
+          value.isLoadingDetailJurnal
               ? const Padding(
                   padding: EdgeInsets.all(16),
-                  child: Text("Tidak ada transaksi pada filter yang dipilih.", style: TextStyle(fontSize: 12)),
+                  child: Center(child: CircularProgressIndicator()),
                 )
-              : Column(
-                  children: value.listTransaksiGlFiltered.map((e) {
-                    return Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-                      decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey.shade300))),
-                      child: Row(
-                        children: [
-                          SizedBox(width: 110, child: Text(DateFormat("yyyy-MM-dd").format(e.tglTrans), style: const TextStyle(fontSize: 12))),
-                          SizedBox(width: 120, child: Text(e.noDok, style: const TextStyle(fontSize: 12))),
-                          SizedBox(width: 120, child: Text(e.noSbb, style: const TextStyle(fontSize: 12))),
-                          Expanded(child: Text("${e.namaSbb} - ${e.keterangan}", style: const TextStyle(fontSize: 12))),
-                          SizedBox(
-                            width: 120,
-                            child: Text(FormatCurrency.oCcyDecimal.format(e.db), textAlign: TextAlign.end, style: const TextStyle(fontSize: 12)),
-                          ),
-                          SizedBox(
-                            width: 120,
-                            child: Text(FormatCurrency.oCcyDecimal.format(e.cr), textAlign: TextAlign.end, style: const TextStyle(fontSize: 12)),
-                          ),
-                        ],
+              : value.listTransaksiGlFiltered.isEmpty
+                  ? const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        "Tidak ada transaksi jurnal untuk No SBB ini dalam 7 hari terakhir.",
+                        style: TextStyle(fontSize: 12),
                       ),
-                    );
-                  }).toList(),
-                ),
+                    )
+                  : Column(
+                      children: value.listTransaksiGlFiltered.map((e) {
+                        return Container(
+                          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                          decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey.shade300))),
+                          child: Row(
+                            children: [
+                              SizedBox(width: 110, child: Text(DateFormat("yyyy-MM-dd").format(e.tglTrans), style: const TextStyle(fontSize: 12))),
+                              SizedBox(width: 120, child: Text(e.noDok, style: const TextStyle(fontSize: 12))),
+                              SizedBox(width: 120, child: Text(e.noSbb, style: const TextStyle(fontSize: 12))),
+                              Expanded(child: Text("${e.namaSbb} - ${e.keterangan}", style: const TextStyle(fontSize: 12))),
+                              SizedBox(
+                                width: 120,
+                                child: Text(FormatCurrency.oCcyDecimal.format(e.db), textAlign: TextAlign.end, style: const TextStyle(fontSize: 12)),
+                              ),
+                              SizedBox(
+                                width: 120,
+                                child: Text(FormatCurrency.oCcyDecimal.format(e.cr), textAlign: TextAlign.end, style: const TextStyle(fontSize: 12)),
+                              ),
+                            ],
+                          ),
+                        );
+                      }).toList(),
+                    ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
             color: Colors.grey.shade100,
@@ -299,7 +345,12 @@ class GlPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSaldoSection(String title, List<NeracaGroup> groups, String keyword) {
+  Widget _buildSaldoSection(
+    BuildContext context,
+    String title,
+    List<NeracaGroup> groups,
+    String keyword,
+  ) {
     final filteredGroups = keyword.isEmpty
         ? groups
         : groups
@@ -338,19 +389,45 @@ class GlPage extends StatelessWidget {
             color: colorPrimary,
             child: const Row(
               children: [
-                SizedBox(width: 120, child: Text("No SBB", style: TextStyle(color: Colors.white, fontSize: 12))),
-                Expanded(child: Text("Nama", style: TextStyle(color: Colors.white, fontSize: 12))),
-                SizedBox(width: 180, child: Text("Saldo", textAlign: TextAlign.end, style: TextStyle(color: Colors.white, fontSize: 12))),
+                SizedBox(
+                  width: 120,
+                  child: Text(
+                    "No SBB",
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    "Nama",
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ),
+                SizedBox(
+                  width: 180,
+                  child: Text(
+                    "Saldo",
+                    textAlign: TextAlign.end,
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ),
+                SizedBox(
+                  width: 90,
+                  child: Text(
+                    "Aksi",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 12),
+                  ),
+                ),
               ],
             ),
           ),
-          ...filteredGroups.map((group) => _buildSaldoGroup(group)),
+          ...filteredGroups.map((group) => _buildSaldoGroup(context, group)),
         ],
       ),
     );
   }
 
-  Widget _buildSaldoGroup(NeracaGroup group) {
+  Widget _buildSaldoGroup(BuildContext context, NeracaGroup group) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -359,11 +436,64 @@ class GlPage extends StatelessWidget {
               decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey.shade100))),
               child: Row(
                 children: [
-                  SizedBox(width: 120, child: Text(a.nosbb, style: const TextStyle(fontSize: 12))),
-                  Expanded(child: Text(a.namaSbb, style: const TextStyle(fontSize: 12))),
+                  SizedBox(
+                    width: 120,
+                    child: Text(
+                      a.nosbb,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFF333333),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(
+                      a.namaSbb,
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ),
                   SizedBox(
                     width: 180,
-                    child: Text(FormatCurrency.oCcyDecimal.format(a.saldo), textAlign: TextAlign.end, style: const TextStyle(fontSize: 12)),
+                    child: Text(
+                      FormatCurrency.oCcyDecimal.format(a.saldo),
+                      textAlign: TextAlign.end,
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 90,
+                    child: Center(
+                      child: InkWell(
+                        onTap: () {
+                          final notifier = Provider.of<GlNotifier>(
+                            context,
+                            listen: false,
+                          );
+
+                          notifier.getDetailJurnalByNoSbb(
+                            noSbb: a.nosbb,
+                            namaSbb: a.namaSbb,
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colorPrimary,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: const Text(
+                            "Detail",
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -373,17 +503,38 @@ class GlPage extends StatelessWidget {
           color: Colors.grey.shade50,
           child: Row(
             children: [
+              SizedBox(
+                width: 120,
+                child: Text(
+                  group.nobb,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                    color: Color(0xFF333333),
+                  ),
+                ),
+              ),
               Expanded(
-                child: Text(group.nobb, textAlign: TextAlign.end, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                child: Text(
+                  group.namaBb.isNotEmpty ? group.namaBb : group.nobb,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                ),
               ),
               SizedBox(
                 width: 180,
                 child: Text(
                   FormatCurrency.oCcyDecimal.format(group.total),
                   textAlign: TextAlign.end,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
                 ),
               ),
+              const SizedBox(width: 90),
             ],
           ),
         ),

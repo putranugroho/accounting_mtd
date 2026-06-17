@@ -1,10 +1,10 @@
+import 'dart:convert';
+
 import 'package:accounting/models/index.dart';
 import 'package:accounting/pref/pref.dart';
 import 'package:accounting/repository/SetupRepository.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:accounting/models/index.dart';
-import 'dart:convert';
 
 import '../../network/network.dart';
 import '../neraca/neraca_berjalan_notiifer.dart' show NeracaFlatItem, NeracaGroup;
@@ -31,12 +31,38 @@ class GlTransaksiItem {
   factory GlTransaksiItem.fromJson(Map<String, dynamic> json) {
     return GlTransaksiItem(
       tglTrans: DateTime.tryParse(json['tgl_trans']?.toString() ?? '') ?? DateTime.now(),
-      noDok: json['no_dok']?.toString() ?? '',
-      noSbb: json['no_sbb']?.toString() ?? '',
+      noDok: json['no_dok']?.toString() ?? json['nomor_dok']?.toString() ?? '',
+      noSbb: json['no_sbb']?.toString() ?? json['nosbb']?.toString() ?? '',
       namaSbb: json['nama_sbb']?.toString() ?? json['namasbb']?.toString() ?? '',
       keterangan: json['keterangan']?.toString() ?? '',
       db: _parseDouble(json['db'] ?? json['mutasidebet']),
       cr: _parseDouble(json['cr'] ?? json['mutasicredit']),
+    );
+  }
+
+  factory GlTransaksiItem.fromTransaksiJson(
+    Map<String, dynamic> json,
+    String selectedNoSbb,
+  ) {
+    final nominal = _parseDouble(json['nominal']);
+    final debetAcc = json['debet_acc']?.toString() ?? '';
+    final creditAcc = json['credit_acc']?.toString() ?? '';
+
+    final isDebet = debetAcc == selectedNoSbb;
+    final isCredit = creditAcc == selectedNoSbb;
+
+    return GlTransaksiItem(
+      tglTrans: DateTime.tryParse(json['tgl_trans']?.toString() ?? '') ?? DateTime.now(),
+      noDok: json['nomor_dok']?.toString() ?? '',
+      noSbb: selectedNoSbb,
+      namaSbb: isDebet
+          ? json['nama_debet']?.toString() ?? ''
+          : isCredit
+              ? json['nama_credit']?.toString() ?? ''
+              : '',
+      keterangan: json['keterangan']?.toString() ?? '',
+      db: isDebet ? nominal : 0,
+      cr: isCredit ? nominal : 0,
     );
   }
 
@@ -152,6 +178,10 @@ class GlNotifier extends ChangeNotifier {
   List<GlTransaksiItem> listTransaksiGl = [];
   List<GlTransaksiItem> listTransaksiGlFiltered = [];
 
+  bool isLoadingDetailJurnal = false;
+  String selectedNoSbb = "";
+  String selectedNamaSbb = "";
+
   // Legacy GlViewModel support (if API returns grouped structure)
   List<GlViewModel> list = [];
 
@@ -169,8 +199,10 @@ class GlNotifier extends ChangeNotifier {
     groupsPasiva.clear();
     groupsBiaya.clear();
     groupsPendapatan.clear();
-    listTransaksiGl.clear();
-    listTransaksiGlFiltered.clear();
+    if (selectedNoSbb.isEmpty) {
+      listTransaksiGl.clear();
+      listTransaksiGlFiltered.clear();
+    }
     notifyListeners();
 
     try {
@@ -268,6 +300,105 @@ class GlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> getDetailJurnalByNoSbb({
+    required String noSbb,
+    required String namaSbb,
+  }) async {
+    if (users == null) return;
+
+    selectedNoSbb = noSbb;
+    selectedNamaSbb = namaSbb;
+
+    isLoadingDetailJurnal = true;
+    listTransaksiGl.clear();
+    listTransaksiGlFiltered.clear();
+    notifyListeners();
+
+    final now = DateTime.now();
+    final startDate = now.subtract(const Duration(days: 7));
+
+    final body = {
+      "filter": {
+        "general": {
+          "batch": null,
+          "userinput": "",
+          "userotor": "",
+          "otorrev": "",
+          "chguser": "",
+          "status_transaksi": "all",
+          "kode_pt": users!.kodePt,
+          "kode_kantor": konsolidasi ? "" : (kantorModel?.kodeKantor ?? users!.kodeKantor),
+          "kode_induk": konsolidasi ? "" : (indukModel?.kodeKantor ?? users!.kodeInduk),
+          "rrn": null,
+          "no_dokumen": null,
+          "no_reff": null,
+          "flag_trn": "0",
+          "acquirer": ""
+        },
+        "range_tanggal": {
+          "from": DateFormat('yyyy-MM-dd').format(startDate),
+          "to": DateFormat('yyyy-MM-dd').format(now),
+        },
+        "range_tanggal_valuta": {
+          "from": "",
+          "to": "",
+        },
+        "akun": {
+          "dracc": null,
+          "cracc": null,
+        },
+        "range_nominal": {
+          "min": null,
+          "max": null,
+        }
+      },
+      "pagination": {
+        "page": 1,
+      },
+      "sort": {
+        "by": "tgl_transaksi, no_dokumen",
+        "order": "desc",
+      }
+    };
+
+    try {
+      final response = await Setuprepository.setup(
+        token,
+        NetworkURL.search(),
+        jsonEncode(body),
+      );
+
+      if (response['code'] == "000") {
+        for (Map<String, dynamic> item in response['data']) {
+          final debetAcc = item['debet_acc']?.toString() ?? '';
+          final creditAcc = item['credit_acc']?.toString() ?? '';
+
+          if (debetAcc == noSbb || creditAcc == noSbb) {
+            listTransaksiGl.add(
+              GlTransaksiItem.fromTransaksiJson(item, noSbb),
+            );
+          }
+        }
+
+        filterTransaksiGl();
+      }
+    } catch (e) {
+      errorMessage = "Gagal mengambil detail jurnal: $e";
+    }
+
+    isLoadingDetailJurnal = false;
+    notifyListeners();
+  }
+
+  void closeDetailJurnal() {
+    selectedNoSbb = "";
+    selectedNamaSbb = "";
+    isLoadingDetailJurnal = false;
+    listTransaksiGl.clear();
+    listTransaksiGlFiltered.clear();
+    notifyListeners();
+  }
+
   Future<void> refresh() async {
     users ??= await Pref().getUsers();
     await _fetchSaldoGl(users!);
@@ -306,8 +437,8 @@ class GlNotifier extends ChangeNotifier {
 
     listTransaksiGlFiltered = listTransaksiGl.where((e) {
       final matchKeyword = keyword.isEmpty || e.noSbb.toLowerCase().contains(keyword) || e.namaSbb.toLowerCase().contains(keyword);
-      final matchDate = e.tglTrans.isAfter(tglAwal.subtract(const Duration(days: 1))) && e.tglTrans.isBefore(tglAkhir.add(const Duration(days: 1)));
-      return matchKeyword && matchDate;
+
+      return matchKeyword;
     }).toList();
 
     listTransaksiGlFiltered.sort((a, b) {

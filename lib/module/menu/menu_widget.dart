@@ -2627,195 +2627,6 @@ class _MenuTransaksiWidgetState extends State<MenuTransaksiWidget> {
             ),
           ),
         ),
-        ExpansionTile(
-            tilePadding: EdgeInsets.zero,
-            childrenPadding: EdgeInsets.zero,
-            shape: const Border(),
-            expandedAlignment: Alignment.centerLeft,
-            collapsedIconColor: Colors.white,
-            expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
-            onExpansionChanged: (expanded) {
-              if (expanded) {
-                setState(() {
-                  _isExpandedSub = 3;
-                });
-              } else {
-                setState(() {
-                  _isExpandedSub = 0;
-                });
-              }
-            },
-            title: Container(
-              decoration: BoxDecoration(
-                color: _isExpandedSub == 3 ? const Color.fromARGB(255, 0, 125, 228) : Colors.transparent,
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
-                  Image.asset(
-                    ImageAssets.report,
-                    height: 30,
-                    color: Colors.white,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const Text(
-                    "Laporan",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            children: [
-              InkWell(
-                onTap: () => widget.value.gantimenu(43),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                  decoration: BoxDecoration(
-                    color: widget.value.page == 43 ? Colors.white : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Image.asset(
-                        ImageAssets.report,
-                        height: 30,
-                        color: widget.value.page == 43 ? Colors.black : Colors.white,
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Text(
-                        "Jurnal",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: widget.value.page == 43 ? Colors.black : Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () => widget.value.gantimenu(25),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                  decoration: BoxDecoration(
-                    color: widget.value.page == 25 ? Colors.white : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Image.asset(
-                        ImageAssets.report,
-                        height: 30,
-                        color: widget.value.page == 25 ? Colors.black : Colors.white,
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Text(
-                        "Transaksi",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: widget.value.page == 25 ? Colors.black : Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              // InkWell(
-              //   onTap: () => widget.value.gantimenu(41),
-              //   child: Container(
-              //     width: MediaQuery.of(context).size.width,
-              //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              //     decoration: BoxDecoration(
-              //       color: widget.value.page == 41
-              //           ? Colors.white
-              //           : Colors.transparent,
-              //       borderRadius: BorderRadius.circular(8),
-              //     ),
-              //     child: Row(
-              //       children: [
-              //         SizedBox(
-              //           width: 16,
-              //         ),
-              //         Image.asset(
-              //           ImageAssets.report,
-              //           height: 30,
-              //           color: widget.value.page == 41
-              //               ? Colors.black
-              //               : Colors.white,
-              //         ),
-              //         SizedBox(
-              //           width: 16,
-              //         ),
-              //         Text(
-              //           "Banyak Transaksi",
-              //           style: TextStyle(
-              //             fontSize: 16,
-              //             color: widget.value.page == 41
-              //                 ? Colors.black
-              //                 : Colors.white,
-              //           ),
-              //         )
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              // InkWell(
-              //   onTap: () => widget.value.gantimenu(42),
-              //   child: Container(
-              //     width: MediaQuery.of(context).size.width,
-              //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              //     decoration: BoxDecoration(
-              //       color: widget.value.page == 42
-              //           ? Colors.white
-              //           : Colors.transparent,
-              //       borderRadius: BorderRadius.circular(8),
-              //     ),
-              //     child: Row(
-              //       children: [
-              //         SizedBox(
-              //           width: 16,
-              //         ),
-              //         Image.asset(
-              //           ImageAssets.report,
-              //           height: 30,
-              //           color: widget.value.page == 42
-              //               ? Colors.black
-              //               : Colors.white,
-              //         ),
-              //         SizedBox(
-              //           width: 16,
-              //         ),
-              //         Text(
-              //           "Back date",
-              //           style: TextStyle(
-              //             fontSize: 16,
-              //             color: widget.value.page == 42
-              //                 ? Colors.black
-              //                 : Colors.white,
-              //           ),
-              //         )
-              //       ],
-              //     ),
-              //   ),
-              // ),
-            ]),
       ],
     );
   }
@@ -3023,6 +2834,72 @@ class _MenuLaporanWidgetState extends State<MenuLaporanWidget> {
                   style: TextStyle(
                     fontSize: 16,
                     color: widget.value.page == 48 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () => widget.value.gantimenu(43),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color: widget.value.page == 43 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 16,
+                ),
+                Image.asset(
+                  ImageAssets.report,
+                  height: 30,
+                  color: widget.value.page == 43 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Jurnal",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: widget.value.page == 43 ? Colors.black : Colors.white,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: () => widget.value.gantimenu(25),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              color: widget.value.page == 25 ? Colors.white : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 16,
+                ),
+                Image.asset(
+                  ImageAssets.report,
+                  height: 30,
+                  color: widget.value.page == 25 ? Colors.black : Colors.white,
+                ),
+                const SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  "Transaksi",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: widget.value.page == 25 ? Colors.black : Colors.white,
                   ),
                 )
               ],

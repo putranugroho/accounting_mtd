@@ -262,6 +262,7 @@ class LabaRugiBerjalanPage extends StatelessWidget {
               Expanded(
                 child: Text(
                   group.namaBb.isNotEmpty ? group.namaBb : "Subtotal",
+                  textAlign: TextAlign.end,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 11,
